@@ -1,0 +1,48 @@
+<style>
+  body {
+    background-color: orange;
+  }
+  table {
+    width: 100%;
+  }
+   tr  {
+    padding: 10px;
+    margin: 20px;
+    line-height: 40px;
+  }
+
+
+
+
+</style>
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="color: red">Name</th>
+      <th style="color: red">Address</th>
+      <th style="color: red">Stars</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody style="background-color: lightblue">
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td style="color: blue"><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= link_to 'Show', restaurant %></td>
+
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>
